@@ -16,15 +16,14 @@ const App = () => {
 
   return (
     <View style={styles.container}>
-      
       <View style={styles.sensorContainer}>
-        <Text>Temperatura: {temperatura}°C</Text>
+        <Text style={styles.textContainer}>Temperatura: {temperatura}°C</Text>
       </View>
       <View style={styles.sensorContainer}>
-        <Text>Distancia: {distancia} cm</Text>
+        <Text style={styles.textContainer}>Distancia: {distancia} cm</Text>
       </View>
       <View style={styles.sensorContainer}>
-        <Text>Potenciómetro: {potenciometro}</Text>
+        <Text style={styles.textContainer}>Potenciómetro: {potenciometro}</Text>
       </View>
 
       <View style={styles.buttonContainer}>
@@ -44,7 +43,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: '#000',
+  },
+  textContainer: {
+    color: '#fff',
   },
   title: {
     fontSize: 24,
