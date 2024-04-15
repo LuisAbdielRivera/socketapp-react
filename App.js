@@ -16,11 +16,14 @@ const App = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Datos de Sensores</Text>
-
+      
       <View style={styles.sensorContainer}>
         <Text>Temperatura: {temperatura}°C</Text>
+      </View>
+      <View style={styles.sensorContainer}>
         <Text>Distancia: {distancia} cm</Text>
+      </View>
+      <View style={styles.sensorContainer}>
         <Text>Potenciómetro: {potenciometro}</Text>
       </View>
 
