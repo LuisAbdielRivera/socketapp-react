@@ -31,7 +31,6 @@ const HomeScreen = () => {
                 <View style={styles.disenoPorcentaje}>
                   <Text style={styles.textoPorcentaje}>On</Text>
                 </View>
-                <Text style={styles.textoEspecificacion}>Encendido</Text>
               </View>
             </View>
             <View style={styles.botonesContainer}>
