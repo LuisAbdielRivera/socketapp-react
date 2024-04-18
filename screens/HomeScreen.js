@@ -1,40 +1,62 @@
-import { View, Text, StyleSheet, TouchableOpacity, Button } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Button, Modal, useWindowDimensions } from 'react-native';
 
 const HomeScreen = () => {
-  const [isOn, setIsOn] = React.useState(false);
+  const windowWidth = useWindowDimensions().width;
+  const windowHeight = useWindowDimensions().height;
 
-  const toggleSwitch = () => {
-    setIsOn(!isOn);
+  const [modalVisible, setModalVisible] = useState(false);
+  const [cardData, setCardData] = useState({});
+
+  const openModal = (data) => {
+    setCardData(data);
+    setModalVisible(true);
   };
+
+  const closeModal = () => {
+    setModalVisible(false);
+  };
+
+  const cards = [
+    { title: 'Temperatura', percentage: '90%' },
+    { title: 'Distancia', percentage: '60%' },
+    { title: 'Potenciómetro', percentage: '90%' },
+  ];
+
+  const cardWidth = windowWidth > 600 ? '30%' : '48%';
+  const marginBetweenCards = windowWidth > 600 ? '5%' : '2%';
 
   return (
     <View style={styles.outerContainer}>
       <View style={styles.innerContainer}>
-        <View style={styles.row}>
-          <View style={styles.card}>
-              <Text style={styles.textoPorcentaje}>80%</Text>
-            <Text style={styles.textoEspecificacion}>Temperatura</Text>
-          </View>
-          <View style={styles.card}>
-              <Text style={styles.textoPorcentaje}>60%</Text>
-            <Text style={styles.textoEspecificacion}>Distancia</Text>
-          </View>
-        </View>
-        <View style={styles.row}>
-          <View style={styles.card}>
-              <Text style={styles.textoPorcentaje}>90%</Text>
-            <Text style={styles.textoEspecificacion}>Potenciómetro</Text>
-          </View>
-          <View style={styles.card}>
-            <TouchableOpacity
-              style={[styles.switchContainer, isOn ? styles.switchOn : styles.switchOff]}
-              onPress={toggleSwitch}
-            >
-              <Text style={styles.switchText}>{isOn ? 'Encendido' : 'Apagado'}</Text>
-            </TouchableOpacity>
+        <View style={styles.rowContainer}>
+          <View style={styles.row}>
+            {cards.map((card, index) => (
+              <TouchableOpacity
+                key={index}
+                style={[styles.card, { width: cardWidth, marginRight: index % 2 === 0 ? marginBetweenCards : 0 }]}
+                onPress={() => openModal(card)}
+              >
+                <Text style={styles.textoPorcentaje}>{card.percentage}</Text>
+                <Text style={styles.textoEspecificacion}>{card.title}</Text>
+              </TouchableOpacity>
+            ))}
           </View>
         </View>
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={modalVisible}
+          onRequestClose={closeModal}
+        >
+          <View style={styles.modalContainer}>
+            <View style={styles.modalContent}>
+              <Text style={styles.modalText}>{cardData.title}</Text>
+              <Text style={styles.modalText}>{cardData.percentage}</Text>
+              <Button title="Cerrar" onPress={closeModal} />
+            </View>
+          </View>
+        </Modal>
         <View style={styles.botonesContainer}>
           <View style={styles.boton}>
             <Button title="Guardar" onPress={() => {}} color="#007bff" />
@@ -61,16 +83,15 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     width: '80%',
   },
-  banner: {
-    color: '#FFF',
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20,
+  rowContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginBottom: 10,
   },
   row: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 10,
+    flexWrap: 'wrap',
   },
   card: {
     backgroundColor: '#303030',
@@ -83,8 +104,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 4,
     elevation: 2,
-    width: '48%',
     height: 200,
+    marginBottom: '5%',
   },
   textoPorcentaje: {
     fontSize: 20,
@@ -105,37 +126,29 @@ const styles = StyleSheet.create({
     width: '100%',
     marginBottom: 10,
   },
-  disenoPorcentaje: {
-    position: 'relative',
-    width: 90,
-    height: 90,
-    borderRadius: 45,
-    backgroundColor: '#007bff',
+  modalContainer: {
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 20,
-    borderWidth: 2,
-    borderColor: '#FFF',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
-  switchContainer: {
-    borderRadius: 20,
-    width: 100,
-    height: 30,
+  modalContent: {
+    backgroundColor: '#303030',
+    padding: 20,
+    borderRadius: 10,
     alignItems: 'center',
     justifyContent: 'center',
-    borderWidth: 2,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 2,
   },
-  switchOn: {
-    backgroundColor: '#00913f',
-    borderColor: '#00913f',
-  },
-  switchOff: {
-    backgroundColor: '#FF0000',
-    borderColor: '#FF0000',
-  },
-  switchText: {
-    color: '#FFF',
+  modalText: {
+    fontSize: 20,
     fontWeight: 'bold',
+    color: '#FFF',
+    marginBottom: 15,
   },
 });
 
