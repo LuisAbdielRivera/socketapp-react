@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Button, Modal, useWindowDimensions } from 'react-native';
-import JSON from './JSON';
+import DatosScreen from './DatosScreen.js';
+import { NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   const windowWidth = useWindowDimensions().width;
   const windowHeight = useWindowDimensions().height;
 
@@ -75,7 +77,7 @@ const HomeScreen = () => {
             <Button title="Guardar" onPress={() => {}} color="#007bff" />
           </View>
           <View style={styles.boton}>
-            <Button title="Ver JSON" onPress={() => {}} color="#007bff" />
+            <Button title="Ver JSON" onPress={() => navigation.navigate('DatosScreen')} color="#007bff" />
           </View>
         </View>
       </View>

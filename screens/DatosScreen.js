@@ -1,7 +1,7 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const JSON = () => {
+const DatosScreen = () => {
   return (
     <View>
       <Text>JSON</Text>
