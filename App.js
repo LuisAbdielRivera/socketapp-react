@@ -5,7 +5,6 @@ const App = () => {
   return (
     <View style={styles.outerContainer}>
       <View style={styles.innerContainer}>
-        {/* Dos tarjetas arriba */}
         <View style={styles.row}>
           <View style={styles.card}>
             <Text style={styles.textoPorcentaje}>80%</Text>
@@ -16,7 +15,6 @@ const App = () => {
             <Text style={styles.textoEspecificacion}>Distancia</Text>
           </View>
         </View>
-        {/* Una tarjeta abajo */}
         <View style={styles.card}>
           <Text style={styles.textoPorcentaje}>90%</Text>
           <Text style={styles.textoEspecificacion}>Potenciómetro</Text>
@@ -53,7 +51,7 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 2,
     width: '45%',
-    height: 150, // Aumento de la altura de la tarjeta
+    height: 150,
   },
   textoPorcentaje: {
     fontSize: 20,
