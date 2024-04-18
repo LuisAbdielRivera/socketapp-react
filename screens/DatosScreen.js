@@ -9,4 +9,4 @@ const DatosScreen = () => {
   )
 }
 
-export default JSON
+export default DatosScreen

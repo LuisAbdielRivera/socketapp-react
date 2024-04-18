@@ -77,7 +77,7 @@ const HomeScreen = ({ navigation }) => {
             <Button title="Guardar" onPress={() => {}} color="#007bff" />
           </View>
           <View style={styles.boton}>
-            <Button title="Ver JSON" onPress={() => navigation.navigate('DatosScreen')} color="#007bff" />
+            <Button title="Ver JSON" onPress={() => navigation.navigate('Datos')} color="#007bff" />
           </View>
         </View>
       </View>
