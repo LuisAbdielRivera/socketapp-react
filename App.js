@@ -4,7 +4,7 @@ import { View, Text, StyleSheet, Button } from 'react-native';
 const App = () => {
   return (
     <View style={styles.outerContainer}>
-      <Text style={styles.banner}>Proyecto de Cupper</Text>
+      <Text style={styles.banner}>iHome</Text>
       <View style={styles.innerContainer}>
         <View style={styles.row}>
           <View style={styles.card}>
@@ -20,11 +20,19 @@ const App = () => {
             <Text style={styles.textoEspecificacion}>Distancia</Text>
           </View>
         </View>
-        <View style={styles.card}>
-          <View style={styles.disenoPorcentaje}>
-            <Text style={styles.textoPorcentaje}>90%</Text>
+        <View style={styles.row}>
+          <View style={styles.card}>
+            <View style={styles.disenoPorcentaje}>
+              <Text style={styles.textoPorcentaje}>90%</Text>
+            </View>
+            <Text style={styles.textoEspecificacion}>Potenciómetro</Text>
           </View>
-          <Text style={styles.textoEspecificacion}>Potenciómetro</Text>
+          <View style={styles.card}>
+            <View style={styles.disenoPorcentaje}>
+              <Text style={styles.textoPorcentaje}>On</Text>
+            </View>
+            <Text style={styles.textoEspecificacion}>Encendido</Text>
+          </View>
         </View>
         <View style={styles.botonesContainer}>
           <View style={styles.boton}>
