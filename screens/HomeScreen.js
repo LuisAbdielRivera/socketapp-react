@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Button, Modal, useWindowDimensions } from 'react-native';
+import JSON from './JSON';
 
 const HomeScreen = () => {
   const windowWidth = useWindowDimensions().width;
@@ -18,7 +19,7 @@ const HomeScreen = () => {
   };
 
   const cards = [
-    { title: 'Temperatura', percentage: '90%' },
+    { title: 'Temperatura', percentage: '100%' },
     { title: 'Distancia', percentage: '60%' },
     { title: 'Potenciómetro', percentage: '90%' },
   ];
