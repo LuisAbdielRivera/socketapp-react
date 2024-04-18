@@ -1,74 +1,69 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
 const App = () => {
-  const temperatura = 25;
-  const distancia = 50;
-  const potenciometro = 75;
-
-  const encenderLED = () => {
-
-  };
-
-  const apagarLED = () => {
-
-  };
-
   return (
-    <View style={styles.container}>
-      <View style={styles.sensorContainer}>
-        <Text style={styles.textContainer}>Temperatura: {temperatura}°C</Text>
-      </View>
-      <View style={styles.sensorContainer}>
-        <Text style={styles.textContainer}>Distancia: {distancia} cm</Text>
-      </View>
-      <View style={styles.sensorContainer}>
-        <Text style={styles.textContainer}>Potenciómetro: {potenciometro}</Text>
-      </View>
-
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button} onPress={encenderLED}>
-          <Text style={styles.buttonText}>Encender LED</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={apagarLED}>
-          <Text style={styles.buttonText}>Apagar LED</Text>
-        </TouchableOpacity>
+    <View style={styles.outerContainer}>
+      <View style={styles.innerContainer}>
+        {/* Dos tarjetas arriba */}
+        <View style={styles.row}>
+          <View style={styles.card}>
+            <Text style={styles.textoPorcentaje}>80%</Text>
+            <Text style={styles.textoEspecificacion}>Temperatura</Text>
+          </View>
+          <View style={styles.card}>
+            <Text style={styles.textoPorcentaje}>60%</Text>
+            <Text style={styles.textoEspecificacion}>Distancia</Text>
+          </View>
+        </View>
+        {/* Una tarjeta abajo */}
+        <View style={styles.card}>
+          <Text style={styles.textoPorcentaje}>90%</Text>
+          <Text style={styles.textoEspecificacion}>Potenciómetro</Text>
+        </View>
       </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
+  outerContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#000',
   },
-  textContainer: {
-    color: '#fff',
+  innerContainer: {
+    flexDirection: 'column',
+    justifyContent: 'space-between',
   },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20,
-  },
-  sensorContainer: {
-    marginBottom: 20,
-  },
-  buttonContainer: {
+  row: {
     flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 20,
   },
-  button: {
-    backgroundColor: '#007bff',
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    borderRadius: 5,
-    marginHorizontal: 10,
+  card: {
+    backgroundColor: '#fff',
+    padding: 20,
+    borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 2,
+    width: '45%',
+    height: 150, // Aumento de la altura de la tarjeta
   },
-  buttonText: {
-    color: '#fff',
+  textoPorcentaje: {
+    fontSize: 20,
     fontWeight: 'bold',
+    color: '#4CAF50',
+    marginBottom: 10,
+  },
+  textoEspecificacion: {
+    fontSize: 16,
+    color: '#333',
   },
 });
 
