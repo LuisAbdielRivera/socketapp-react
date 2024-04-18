@@ -4,6 +4,7 @@ import { View, Text, StyleSheet, Button } from 'react-native';
 const App = () => {
   return (
     <View style={styles.outerContainer}>
+      <Text style={styles.banner}>Proyecto de Cupper</Text>
       <View style={styles.innerContainer}>
         <View style={styles.row}>
           <View style={styles.card}>
@@ -44,11 +45,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#1C1A19',
+    paddingVertical: 20,
   },
   innerContainer: {
     flexDirection: 'column',
     justifyContent: 'space-between',
     width: '80%',
+  },
+  banner: {
+    color: '#FFF',
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
   },
   row: {
     flexDirection: 'row',
@@ -92,11 +100,13 @@ const styles = StyleSheet.create({
     position: 'relative',
     width: 90,
     height: 90,
-    borderRadius: 50,
+    borderRadius: 45,
     backgroundColor: '#007bff',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 20
+    marginBottom: 20,
+    borderWidth: 2,
+    borderColor: '#FFF',
   },
 });
 
