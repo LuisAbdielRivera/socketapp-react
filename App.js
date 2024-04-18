@@ -7,16 +7,22 @@ const App = () => {
       <View style={styles.innerContainer}>
         <View style={styles.row}>
           <View style={styles.card}>
-            <Text style={styles.textoPorcentaje}>80%</Text>
+            <View style={styles.disenoPorcentaje}>
+              <Text style={styles.textoPorcentaje}>80%</Text>
+            </View>
             <Text style={styles.textoEspecificacion}>Temperatura</Text>
           </View>
           <View style={styles.card}>
-            <Text style={styles.textoPorcentaje}>60%</Text>
+            <View style={styles.disenoPorcentaje}>
+              <Text style={styles.textoPorcentaje}>60%</Text>
+            </View>
             <Text style={styles.textoEspecificacion}>Distancia</Text>
           </View>
         </View>
         <View style={styles.card}>
-          <Text style={styles.textoPorcentaje}>90%</Text>
+          <View style={styles.disenoPorcentaje}>
+            <Text style={styles.textoPorcentaje}>90%</Text>
+          </View>
           <Text style={styles.textoEspecificacion}>Potenciómetro</Text>
         </View>
         <View style={styles.botonesContainer}>
@@ -37,6 +43,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: '#1C1A19',
   },
   innerContainer: {
     flexDirection: 'column',
@@ -46,10 +53,10 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 20,
+    marginBottom: 10,
   },
   card: {
-    backgroundColor: '#fff',
+    backgroundColor: '#303030',
     padding: 20,
     borderRadius: 10,
     alignItems: 'center',
@@ -60,17 +67,17 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 2,
     width: '48%',
-    height: 150,
+    height: 200,
   },
   textoPorcentaje: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#4CAF50',
-    marginBottom: 10,
+    color: '#FFF',
+    marginBottom: 15,
   },
   textoEspecificacion: {
     fontSize: 14,
-    color: '#333',
+    color: '#FFF',
   },
   botonesContainer: {
     marginTop: 20,
@@ -80,6 +87,16 @@ const styles = StyleSheet.create({
   boton: {
     width: '100%',
     marginBottom: 10,
+  },
+  disenoPorcentaje: {
+    position: 'relative',
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    backgroundColor: '#007bff',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 20
   },
 });
 
