@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Button } from 'react-native';
 
 const App = () => {
   return (
@@ -19,6 +19,15 @@ const App = () => {
           <Text style={styles.textoPorcentaje}>90%</Text>
           <Text style={styles.textoEspecificacion}>Potenciómetro</Text>
         </View>
+        {/* Botones */}
+        <View style={styles.botonesContainer}>
+          <View style={styles.boton}>
+            <Button title="Guardar" onPress={() => {}} color="#007bff" />
+          </View>
+          <View style={styles.boton}>
+            <Button title="Ver JSON" onPress={() => {}} color="#007bff" />
+          </View>
+        </View>
       </View>
     </View>
   );
@@ -33,6 +42,7 @@ const styles = StyleSheet.create({
   innerContainer: {
     flexDirection: 'column',
     justifyContent: 'space-between',
+    width: '80%',
   },
   row: {
     flexDirection: 'row',
@@ -50,7 +60,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 4,
     elevation: 2,
-    width: '45%',
+    width: '48%',
     height: 150,
   },
   textoPorcentaje: {
@@ -60,8 +70,17 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   textoEspecificacion: {
-    fontSize: 16,
+    fontSize: 14,
     color: '#333',
+  },
+  botonesContainer: {
+    marginTop: 20,
+    width: '100%',
+    flexDirection: 'column', // Cambiado a columna para que los botones se coloquen uno debajo del otro
+  },
+  boton: {
+    width: '100%', // Afecta solo a los botones y no a las tarjetas
+    marginBottom: 10,
   },
 });
 
