@@ -10,27 +10,20 @@ const HomeScreen = () => {
 
   return (
     <View style={styles.outerContainer}>
-      <Text style={styles.banner}>iHome</Text>
       <View style={styles.innerContainer}>
         <View style={styles.row}>
           <View style={styles.card}>
-            <View style={styles.disenoPorcentaje}>
               <Text style={styles.textoPorcentaje}>80%</Text>
-            </View>
             <Text style={styles.textoEspecificacion}>Temperatura</Text>
           </View>
           <View style={styles.card}>
-            <View style={styles.disenoPorcentaje}>
               <Text style={styles.textoPorcentaje}>60%</Text>
-            </View>
             <Text style={styles.textoEspecificacion}>Distancia</Text>
           </View>
         </View>
         <View style={styles.row}>
           <View style={styles.card}>
-            <View style={styles.disenoPorcentaje}>
               <Text style={styles.textoPorcentaje}>90%</Text>
-            </View>
             <Text style={styles.textoEspecificacion}>Potenciómetro</Text>
           </View>
           <View style={styles.card}>
@@ -38,7 +31,7 @@ const HomeScreen = () => {
               style={[styles.switchContainer, isOn ? styles.switchOn : styles.switchOff]}
               onPress={toggleSwitch}
             >
-              <Text style={styles.switchText}>{isOn ? 'ON' : 'OFF'}</Text>
+              <Text style={styles.switchText}>{isOn ? 'Encendido' : 'Apagado'}</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -126,7 +119,7 @@ const styles = StyleSheet.create({
   },
   switchContainer: {
     borderRadius: 20,
-    width: 60,
+    width: 100,
     height: 30,
     alignItems: 'center',
     justifyContent: 'center',

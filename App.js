@@ -10,7 +10,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name='App' component={HomeScreen}/>
+        <Stack.Screen name='iHome' component={HomeScreen}/>
       </Stack.Navigator>
     </NavigationContainer>
   )
