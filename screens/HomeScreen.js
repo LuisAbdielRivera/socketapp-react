@@ -8,6 +8,7 @@ const HomeScreen = () => {
 
   const [modalVisible, setModalVisible] = useState(false);
   const [cardData, setCardData] = useState({});
+  const [isOn, setIsOn] = useState(false);
 
   const openModal = (data) => {
     setCardData(data);
@@ -18,10 +19,14 @@ const HomeScreen = () => {
     setModalVisible(false);
   };
 
+  const toggleSwitch = () => {
+    setIsOn(!isOn);
+  };
+
   const cards = [
     { title: 'Temperatura', percentage: '100%' },
     { title: 'Distancia', percentage: '60%' },
-    { title: 'Potenciómetro', percentage: '90%' },
+    { title: 'Potenciómetro', percentage: '90%' }
   ];
 
   const cardWidth = windowWidth > 600 ? '30%' : '48%';
@@ -58,7 +63,14 @@ const HomeScreen = () => {
             </View>
           </View>
         </Modal>
-        <View style={styles.botonesContainer}>
+          <View style={styles.containerBtn}>
+            <TouchableOpacity
+              style={[styles.switchContainer, isOn ? styles.switchOn : styles.switchOff]}
+              onPress={toggleSwitch}
+            >
+          <Text style={styles.switchText}>{isOn ? 'ON' : 'OFF'}</Text>
+            </TouchableOpacity>
+          </View>
           <View style={styles.boton}>
             <Button title="Guardar" onPress={() => {}} color="#007bff" />
           </View>
@@ -67,7 +79,6 @@ const HomeScreen = () => {
           </View>
         </View>
       </View>
-    </View>
   );
 };
 
@@ -118,8 +129,8 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#FFF',
   },
-  botonesContainer: {
-    marginTop: 20,
+  containerBtn: {
+    marginBottom: 20,
     width: '100%',
     flexDirection: 'column',
   },
@@ -150,6 +161,26 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#FFF',
     marginBottom: 15,
+  },
+  switchContainer: {
+    borderRadius: 20,
+    width: 100,
+    height: 30,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderWidth: 2,
+  },
+  switchOn: {
+    backgroundColor: '#00913f',
+    borderColor: '#00913f',
+  },
+  switchOff: {
+    backgroundColor: '#FF0000',
+    borderColor: '#FF0000',
+  },
+  switchText: {
+    color: '#FFF',
+    fontWeight: 'bold',
   },
 });
 
