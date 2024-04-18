@@ -19,7 +19,6 @@ const App = () => {
           <Text style={styles.textoPorcentaje}>90%</Text>
           <Text style={styles.textoEspecificacion}>Potenciómetro</Text>
         </View>
-        {/* Botones */}
         <View style={styles.botonesContainer}>
           <View style={styles.boton}>
             <Button title="Guardar" onPress={() => {}} color="#007bff" />
@@ -76,10 +75,10 @@ const styles = StyleSheet.create({
   botonesContainer: {
     marginTop: 20,
     width: '100%',
-    flexDirection: 'column', // Cambiado a columna para que los botones se coloquen uno debajo del otro
+    flexDirection: 'column',
   },
   boton: {
-    width: '100%', // Afecta solo a los botones y no a las tarjetas
+    width: '100%',
     marginBottom: 10,
   },
 });
