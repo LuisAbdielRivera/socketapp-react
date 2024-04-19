@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Button, Modal, useWindowDimensions } from 'react-native';
+import { FontAwesome } from '@expo/vector-icons';
 import DatosScreen from './DatosScreen.js';
-import { NavigationContainer } from '@react-navigation/native'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const HomeScreen = ({ navigation }) => {
   const windowWidth = useWindowDimensions().width;
@@ -26,9 +27,9 @@ const HomeScreen = ({ navigation }) => {
   };
 
   const cards = [
-    { title: 'Temperatura', percentage: '100%' },
-    { title: 'Distancia', percentage: '60%' },
-    { title: 'Potenciómetro', percentage: '90%' }
+    { icon: 'thermometer', title: 'Temperatura', percentage: '100%' },
+    { icon: 'map-marker', title: 'Distancia', percentage: '60%' },
+    { icon: 'sliders', title: 'Potenciómetro', percentage: '90%' }
   ];
 
   const cardWidth = windowWidth > 600 ? '30%' : '48%';
@@ -45,6 +46,7 @@ const HomeScreen = ({ navigation }) => {
                 style={[styles.card, { width: cardWidth, marginRight: index % 2 === 0 ? marginBetweenCards : 0 }]}
                 onPress={() => openModal(card)}
               >
+                <FontAwesome name={card.icon} size={50} color="white" />
                 <Text style={styles.textoPorcentaje}>{card.percentage}</Text>
                 <Text style={styles.textoEspecificacion}>{card.title}</Text>
               </TouchableOpacity>
@@ -65,22 +67,22 @@ const HomeScreen = ({ navigation }) => {
             </View>
           </View>
         </Modal>
-          <View style={styles.containerBtn}>
-            <TouchableOpacity
-              style={[styles.switchContainer, isOn ? styles.switchOn : styles.switchOff]}
-              onPress={toggleSwitch}
-            >
-          <Text style={styles.switchText}>{isOn ? 'ON' : 'OFF'}</Text>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.boton}>
-            <Button title="Guardar" onPress={() => {}} color="#007bff" />
-          </View>
-          <View style={styles.boton}>
-            <Button title="Ver JSON" onPress={() => navigation.navigate('Datos')} color="#007bff" />
-          </View>
+        <View style={styles.containerBtn}>
+          <TouchableOpacity
+            style={[styles.switchContainer, isOn ? styles.switchOn : styles.switchOff]}
+            onPress={toggleSwitch}
+          >
+            <Text style={styles.switchText}>{isOn ? 'ON' : 'OFF'}</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.boton}>
+          <Button title="Guardar" onPress={() => {}} color="#007bff" />
+        </View>
+        <View style={styles.boton}>
+          <Button title="Ver JSON" onPress={() => navigation.navigate('Datos')} color="#007bff" />
         </View>
       </View>
+    </View>
   );
 };
 
