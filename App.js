@@ -19,7 +19,7 @@ const App = () => {
             headerTitle: (props) => (
               <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                 <FontAwesome name="home" size={24} color="white" style={{ marginRight: 5 }} />
-                <Text {...props} style={{ color: 'white', fontSize: 20 }}>Home</Text>
+                <Text {...props} style={{ color: 'white', fontSize: 20 }}>iHome</Text>
               </View>
             ),
             headerStyle: { backgroundColor: '#007bff' },
