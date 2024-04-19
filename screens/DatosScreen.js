@@ -1,18 +1,32 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { getSensors, deleteSensor } from '../api'
+import { FontAwesome } from '@expo/vector-icons';
+import { getSensors, deleteSensor } from '../api';
 
 const DatosScreen = () => {
   return (
     <View style={styles.container}>
       <View style={styles.card}>
         <View style={styles.cardBody}>
-          <Text style={styles.textItem}>Temperatuta : 100</Text>
-          <Text style={styles.textItem}>Potenciómetro: 50</Text>
-          <Text style={styles.textItem}>Distancia: 150</Text>
-          <Text style={styles.textItem}>Led: Encendido</Text>
+          <View style={styles.row}>
+            <FontAwesome name="thermometer" size={20} color="#FFF" />
+            <Text style={styles.textItem}>Temperatura: 100</Text>
+          </View>
+          <View style={styles.row}>
+            <FontAwesome name="sliders" size={20} color="#FFF" />
+            <Text style={styles.textItem}>Potenciómetro: 50</Text>
+          </View>
+          <View style={styles.row}>
+            <FontAwesome name="arrows-h" size={20} color="#FFF" />
+            <Text style={styles.textItem}>Distancia: 150</Text>
+          </View>
+          <View style={styles.row}>
+            <FontAwesome name="lightbulb-o" size={20} color="#FFF" />
+            <Text style={styles.textItem}>Led: Encendido</Text>
+          </View>
         </View>
         <TouchableOpacity style={styles.buttonDelete}>
+          <FontAwesome name="trash" size={24} color="white" />
           <Text style={styles.buttonText}>Eliminar</Text>
         </TouchableOpacity>
       </View>
@@ -29,7 +43,7 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
   },
   card: {
-    width: '80%', // Ancho del card ajustado
+    width: '80%',
     backgroundColor: '#303030',
     borderRadius: 10,
     marginBottom: '5%',
@@ -45,19 +59,28 @@ const styles = StyleSheet.create({
   cardBody: {
     marginBottom: 10,
   },
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 5,
+  },
   textItem: {
     fontSize: 14,
     color: '#FFF',
+    marginLeft: 10,
   },
   buttonDelete: {
-    backgroundColor: '#F1480F',
+    flexDirection: 'row',
+    backgroundColor: '#FF0000',
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 20,
+    alignItems: 'center',
   },
   buttonText: {
     color: '#FFF',
     fontWeight: 'bold',
+    marginLeft: 10,
   },
 });
 
