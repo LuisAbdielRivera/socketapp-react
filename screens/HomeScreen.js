@@ -28,7 +28,7 @@ const HomeScreen = ({ navigation }) => {
 
   const cards = [
     { icon: 'thermometer', title: 'Temperatura', percentage: '100%' },
-    { icon: 'map-marker', title: 'Distancia', percentage: '60%' },
+    { icon: 'arrows-h', title: 'Distancia', percentage: '60%' },
     { icon: 'sliders', title: 'Potenciómetro', percentage: '90%' }
   ];
 
@@ -46,7 +46,7 @@ const HomeScreen = ({ navigation }) => {
                 style={[styles.card, { width: cardWidth, marginRight: index % 2 === 0 ? marginBetweenCards : 0 }]}
                 onPress={() => openModal(card)}
               >
-                <FontAwesome name={card.icon} size={50} color="white" />
+                <FontAwesome style={styles.icon} name={card.icon} size={50} color="white" />
                 <Text style={styles.textoPorcentaje}>{card.percentage}</Text>
                 <Text style={styles.textoEspecificacion}>{card.title}</Text>
               </TouchableOpacity>
@@ -67,13 +67,16 @@ const HomeScreen = ({ navigation }) => {
             </View>
           </View>
         </Modal>
-        <View style={styles.containerBtn}>
-          <TouchableOpacity
-            style={[styles.switchContainer, isOn ? styles.switchOn : styles.switchOff]}
-            onPress={toggleSwitch}
-          >
-            <Text style={styles.switchText}>{isOn ? 'ON' : 'OFF'}</Text>
-          </TouchableOpacity>
+        <View style={styles.buttonContainer}>
+        <FontAwesome name="lightbulb-o" size={24} color="white" style={{ marginRight: 10 }} />
+          <View style={styles.switchContainer}>
+            <TouchableOpacity
+              style={[styles.switchButton, isOn ? styles.switchOn : styles.switchOff]}
+              onPress={toggleSwitch}
+            >
+              <Text style={styles.switchText}>{isOn ? 'ON' : 'OFF'}</Text>
+            </TouchableOpacity>
+          </View>
         </View>
         <View style={styles.boton}>
           <Button title="Guardar" onPress={() => {}} color="#007bff" />
@@ -104,6 +107,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginBottom: 10,
   },
+  icon:{
+    marginBottom: 5
+  },
   row: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -133,10 +139,11 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#FFF',
   },
-  containerBtn: {
+  buttonContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
     marginBottom: 20,
-    width: '100%',
-    flexDirection: 'column',
   },
   boton: {
     width: '100%',
@@ -146,7 +153,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)'
   },
   modalContent: {
     backgroundColor: '#303030',
@@ -173,6 +180,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 2,
+  },
+  switchButton: {
+    borderRadius: 20,
+    width: '100%',
+    height: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   switchOn: {
     backgroundColor: '#00913f',
