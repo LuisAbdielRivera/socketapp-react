@@ -77,7 +77,7 @@ const HomeScreen = ({ navigation }) => {
             style={[styles.switchButton, isOn ? styles.switchOn : styles.switchOff]}
             onPress={toggleSwitch}
           >
-            <Text style={styles.switchText}>{isOn ? 'ON' : 'OFF'}</Text>
+            <Text style={styles.switchText}>{isOn ? 'Encender' : 'Apagar'}</Text>
           </TouchableOpacity>
         </View>
 
