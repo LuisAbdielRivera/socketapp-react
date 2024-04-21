@@ -49,7 +49,7 @@ const HomeScreen = ({ navigation }) => {
   };
 
   useEffect(() => {
-    const webSocket = new WebSocket("ws://192.168.137.145:81");
+    const webSocket = new WebSocket("ws://192.168.137.170:81");
     setWebSocket(webSocket); // Guardar el WebSocket en el estado
 
     webSocket.onmessage = (event) => {

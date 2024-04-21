@@ -14,11 +14,12 @@ DHT dht(DHTPIN, DHTTYPE);
 #define ECHO_PIN D3
 #define POT_PIN A0
 #define LED_PIN D4
+#define SECOND_LED_PIN D6 // Nuevo pin para el segundo LED
 
-const char* ssid = "nombre de la red";
-const char* password = "contraseña de la red";
+const char* ssid = "BrionesLaptop";
+const char* password = "Briones2004";
 
-IPAddress ip(192,168,137,145);
+IPAddress ip(192,168,137,170);
 ESP8266WebServer server(80);
 WebSocketsServer webSocket(81);
 
@@ -26,6 +27,13 @@ void webSocketEvent(uint8_t num, WStype_t type, uint8_t * payload, size_t length
   if (type == WStype_TEXT) {
     Serial.println("Mensaje recibido del cliente: ");
     Serial.println((char *)payload);
+
+    // Verificar si el mensaje es "encender" o "apagar"
+    if (strcmp((char *)payload, "encender") == 0) {
+      digitalWrite(SECOND_LED_PIN, HIGH); // Encender el segundo LED
+    } else if (strcmp((char *)payload, "apagar") == 0) {
+      digitalWrite(SECOND_LED_PIN, LOW); // Apagar el segundo LED
+    }
   }
 }
 
@@ -38,6 +46,7 @@ void setup() {
   pinMode(ECHO_PIN, INPUT);
   pinMode(POT_PIN, INPUT);
   pinMode(LED_PIN, OUTPUT);
+  pinMode(SECOND_LED_PIN, OUTPUT); // Establecer el segundo LED como salida
 
   WiFi.begin(ssid, password);
   Serial.print("Conectando a WiFi");
